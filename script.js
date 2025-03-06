@@ -23,14 +23,14 @@ function updateAveragePrice() {
     const average = freelancers.length > 0 ? total / freelancers.length : 0;
     document.getElementById("average-price").textContent = `Average starting price: $${average.toFixed(2)}`;}
 
-function generateFreelancer() {
+function genFreelancer() {
     const randomName = names[Math.floor(Math.random() * names.length)];
     const randomOccupation = occupations[Math.floor(Math.random() * occupations.length)];
     const randomPrice = Math.floor(Math.random() * 140) + 600;
     return { name: randomName, price: randomPrice, occupation: randomOccupation };}
 
 function addNewFreelancer(){
-    const newFreelancer = generateFreelancer();
+    const newFreelancer = genFreelancer();
     freelancers.push(newFreelancer);
     renderFreelancers();
     updateAveragePrice();}
@@ -38,4 +38,4 @@ function addNewFreelancer(){
 renderFreelancers();
 updateAveragePrice();
 
-setInterval(addNewFreelancer, 3000);
+setInterval(addNewFreelancer, 2000);
